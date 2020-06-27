@@ -20,11 +20,12 @@ $(document).ready(function() {
         var template = Handlebars.compile(source);
 
         var cds = data.response;
-        console.log(cds)
+        // console.log(cds)
          for(var i = 0; i < cds.length; i++ ){
            var cd = data.response[i];
            var html = template(cd);
-            $(".cds-container").append(html);
+           $(".cds-container").append(html);
+
          }
 
       },
@@ -34,6 +35,24 @@ $(document).ready(function() {
     }
   );
 
+
+  $(document).change(function(){
+    // Creare una Variante per la value di select.
+    var genre = $("#js_select").val();
+
+    // Per Ogni CD.
+    $(".cd").each(function() {
+      // Se in questo CD, il TEXT del GENRE è uguale a la VALUE GENRE.
+      if($(this).find(".genre").text() == genre){
+        // Mostrare questo CD.
+        $(this).show();
+      }else{
+        // Altrementi Nascondelo.
+        $(this).hide();
+      }
+    });
+
+  });
 
 
 });

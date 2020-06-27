@@ -65,6 +65,7 @@ header img {
 
 .cd span.year {
     color: grey;
+    font-size: 10px;
 }
 
 .cd span.genre {
