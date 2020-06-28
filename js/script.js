@@ -10,22 +10,30 @@ corrispondenti cd.
 
 $(document).ready(function() {
 
-
+  /*
+  Attraverso una chiamata ajax all’Api di boolean avremo a
+  disposizione una decina di dischi musicali.
+  Servendoci di handlebars stampiamo tutto a schermo.
+  In questo momento non è importante la parte grafica.
+  */
   $.ajax(
     {
       url: 'https://flynn.boolean.careers/exercises/api/array/music',
       method: 'GET',
       success: function(data){
+        // Handlebars.
         var source = $("#entry-template").html();
         var template = Handlebars.compile(source);
 
-        // Variante di tutto il contenuto del URL (Array di Objects).
+        // Variante di tutto il contenuto del URL (Array di OBJECTS).
         var cds = data.response;
         // Ciclo FOR con Lunghezza della Variante che contiene tutta la risposta URL.
          for(var i = 0; i < cds.length; i++ ){
-           // Variante di Ogni elemento che è dentro
+           // Variante di Ogni OBJECT che è dentro l'Array.
            var cd = data.response[i];
+           // TEMPLATE da Appendere.
            var html = template(cd);
+           // Appendere HTML nel DIV desiderato.
            $(".cds-container").append(html);
 
          }
@@ -38,6 +46,11 @@ $(document).ready(function() {
   );
 
 
+  /*
+  Bonus: Creare una select con i seguenti generi: pop, rock,
+  metal e jazz. In base a cosa scegliamo nella select vedremo i
+  corrispondenti cd.
+  */
   $(document).change(function(){
     // Creare una Variante per la VALUE di SELECT.
     var genreValueSelect = $("#js_select").val();
