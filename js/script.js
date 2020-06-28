@@ -37,17 +37,21 @@ $(document).ready(function() {
 
 
   $(document).change(function(){
-    // Creare una Variante per la value di select.
-    var genre = $("#js_select").val();
-
-    // Per Ogni CD.
+    // Creare una Variante per la VALUE di SELECT.
+    var genreValueSelect = $("#js_select").val();
+    // Per Ogni CD esegue questa funzione.
     $(".cd").each(function() {
-      // Se in questo CD, il TEXT del GENRE è uguale a la VALUE GENRE.
-      if($(this).find(".genre").text() == genre){
-        // Mostrare questo CD.
+      // Creare una Variante Per il GENRE di THIS CD.
+      var genreCD = $(this).find(".genre").text();
+
+      // Se il VALUE del SELECT è uguale ad "All", Mostrare Tutti CD.
+      if(genreValueSelect == "All"){
+        $(".cd").show();
+      } // Altrementi Se il VALUE del SELECT è uguale a GENRE nel CD, SHOW questo CD.
+      else if(genreValueSelect == genreCD){
         $(this).show();
-      }else{
-        // Altrementi Nascondelo.
+      } // Altrementi HIDE questo CD.
+      else {
         $(this).hide();
       }
     });

@@ -11,10 +11,23 @@ body {
 }
 
 .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
     width: 1070px;
     height: 100%;
     margin: 0 auto;
 }
+
+select {
+  border-radius: 10px;
+  border: 3px solid black;
+  background: lightgrey;
+  width: 200px;
+  height: 40px;
+  font-size: 25px;
+}
+
 
 header {
     width: 100%;
