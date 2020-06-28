@@ -19,9 +19,11 @@ $(document).ready(function() {
         var source = $("#entry-template").html();
         var template = Handlebars.compile(source);
 
+        // Variante di tutto il contenuto del URL (Array di Objects).
         var cds = data.response;
-        // console.log(cds)
+        // Ciclo FOR con Lunghezza della Variante che contiene tutta la risposta URL.
          for(var i = 0; i < cds.length; i++ ){
+           // Variante di Ogni elemento che è dentro
            var cd = data.response[i];
            var html = template(cd);
            $(".cds-container").append(html);
